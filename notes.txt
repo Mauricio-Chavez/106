@@ -1,0 +1,6 @@
+we need to divide the screen in two sections 
+(section A and section B)
+
+
+Section A is the List
+Section B is the Form 

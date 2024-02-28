@@ -1,0 +1,31 @@
+html,body{
+    margin: 0;
+}
+main{
+    display: flex;
+    height: calc(100vh - 47px);
+}
+
+#list{
+    background-color: burlywood;
+    height: 100%;
+    flex: 6;
+}
+#form-container{
+    background-color: aquamarine;
+    height: 100%;
+    flex: 6;
+}
+.card{
+    color: white !important;
+    width: 100%;
+    
+}
+#list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+/* .btn.btn-sm.btn-primary{
+    color: black;
+} */
