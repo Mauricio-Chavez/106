@@ -57,5 +57,7 @@ function displayTasks(){
     }
     $("#list").html(html);
 }
-
-displayTasks();
+function init(){
+    displayTasks();
+}
+window.onload = init;
