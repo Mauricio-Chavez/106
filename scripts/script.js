@@ -104,6 +104,39 @@ $("#tasks,#progressTasks,#completedTasks").on("click", ".fa-star", function(){
     // tasks[index].important = !tasks[index].important; 
     displayTasks();
 });
+function deleteAllTasks(){
+    let user = JSON.parse(sessionStorage.getItem("user"));
+    $.ajax({
+        type: "DELETE",
+        url: `http://fsdiapi.azurewebsites.net/api/tasks/clear/${user.email}`,
+        success: function(response){
+            console.log(response);
+            displayTasks();
+            displayProgressTasks();
+            displayCompletedTasks();
+        },
+        error: function(error){
+            console.log(error);
+        }
+    });
+}
+function deleteTask(button){
+    let taskId = $(button).closest('.card').data('task');
+    console.log(taskId);
+    $.ajax({
+        type: "DELETE",
+        url: `http://fsdiapi.azurewebsites.net/api/tasks/${taskId}`,
+        success: function(response){
+            console.log(response);
+            displayTasks();
+            displayProgressTasks();
+            displayCompletedTasks();
+        },
+        error: function(error){
+            console.log(error);
+        }
+    });
+}
 function changeStatus(button,i){
     let taskId = $(button).closest('.card').data('task');
     let status = $('#selectStatus' + i).val();
