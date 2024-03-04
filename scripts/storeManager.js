@@ -18,3 +18,19 @@ function updateStorage(task, key) {
     let val = JSON.stringify(task);
     localStorage.setItem(key,val);
 }
+function signOut() {
+    sessionStorage.removeItem("user");
+    window.location.href = "index.html";
+}
+
+
+function getCategories() {
+    let categories = JSON.parse(sessionStorage.getItem("user")).categories;
+    let options = "";
+    categories.forEach(category => {
+        options += `<option value="${category}">${category}</option>`;
+    });
+    $("#category").html(options);
+}
+
+getCategories();
