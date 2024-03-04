@@ -23,7 +23,7 @@ function displayCategories() {
         table += `
         <tr>
             <td>${category}</td>
-            <td><button class="btn btn-danger" onclick="deleteCategory(${index})">Delete</button></td>
+            <td><button class="btn btn-danger" onclick="deleteCategory(${index})"><i class="fa-solid fa-trash"></i></button></td>
         </tr>`;
     });
     $("#categories").html(table);

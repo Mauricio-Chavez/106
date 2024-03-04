@@ -173,6 +173,7 @@ tr:hover td {
 .status-container{
     display: flex;
     justify-content: right;
+    gap: 0.5rem;
 }
 .status-container select{
     width: auto;

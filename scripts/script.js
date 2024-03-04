@@ -108,7 +108,7 @@ function deleteAllTasks(){
     let user = JSON.parse(sessionStorage.getItem("user"));
     $.ajax({
         type: "DELETE",
-        url: `http://fsdiapi.azurewebsites.net/api/tasks/clear/${user.email}`,
+        url: `http://fsdiapi.azurewebsites.net/api/tasks/clear/${user.email}/`,
         success: function(response){
             console.log(response);
             displayTasks();
@@ -125,7 +125,7 @@ function deleteTask(button){
     console.log(taskId);
     $.ajax({
         type: "DELETE",
-        url: `http://fsdiapi.azurewebsites.net/api/tasks/${taskId}`,
+        url: `http://fsdiapi.azurewebsites.net/api/tasks/${taskId}/`,
         success: function(response){
             console.log(response);
             displayTasks();
@@ -193,7 +193,8 @@ function displayTasks(){
                                             <option value="In Progress">In Progress</option>
                                             <option value="Completed">Completed</option>
                                         </select>
-                                        <button class="btn btn-success" onclick="changeStatus(this,${i})">Save</button>
+                                        <button class="btn btn-success" onclick="changeStatus(this,${i})"><i class="fa-solid fa-floppy-disk"></i></button>
+                                        <button class="btn btn-danger" onclick="deleteTask(this)"><i class="fa-solid fa-trash"></i></button>
                                     </div>
                                 </div>
                             </div>`;
@@ -237,7 +238,8 @@ function displayProgressTasks(){
                                             <option value="In Progress">In Progress</option>
                                             <option value="Completed">Completed</option>
                                         </select>
-                                        <button class="btn btn-success" onclick="changeStatus(this,${i})">Save</button>
+                                        <button class="btn btn-success" onclick="changeStatus(this,${i})"><i class="fa-solid fa-floppy-disk"></i></button>
+                                        <button class="btn btn-danger" onclick="deleteTask(this)"><i class="fa-solid fa-trash"></i></button>
                                     </div>
                                 </div>
                             </div>`;
@@ -283,7 +285,8 @@ function displayCompletedTasks(){
                                             <option value="In Progress">In Progress</option>
                                             <option value="Completed">Completed</option>
                                         </select>
-                                        <button class="btn btn-success" onclick="changeStatus(this,${i})">Save</button>
+                                        <button class="btn btn-success" onclick="changeStatus(this,${i})"><i class="fa-solid fa-floppy-disk"></i></button>
+                                        <button class="btn btn-danger" onclick="deleteTask(this)"><i class="fa-solid fa-trash"></i></button>
                                     </div>
                                 </div>
                             </div>`;
